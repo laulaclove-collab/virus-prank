@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Một câu hỏi dành cho cậu 💗</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;padding:20px;
+ display:flex;align-items:center;justify-content:center;
+ font-family:Arial,sans-serif;text-align:center;
+ color:#75274b;
+ background:linear-gradient(135deg,#ffe1ec,#fff0f6,#ffd5e6);
+ overflow:hidden;
+}
+.heart{
+ position:fixed;bottom:-40px;font-size:24px;
+ animation:float 7s linear infinite;opacity:.7;
+ pointer-events:none;
+}
+@keyframes float{
+ to{transform:translateY(-110vh) rotate(35deg);opacity:0}
+}
+.card{
+ position:relative;width:100%;max-width:430px;
+ padding:32px 22px;border-radius:26px;
+ background:#ffffffed;
+ box-shadow:0 12px 40px #d96c9940;
+ border:2px solid white;
+}
+.big{font-size:75px;animation:pulse 1.5s infinite alternate}
+@keyframes pulse{to{transform:scale(1.08)}}
+h1{font-size:29px;color:#e34c87}
+p{font-size:18px;line-height:1.6}
+.buttons{
+ display:flex;justify-content:center;gap:12px;
+ flex-wrap:wrap;margin-top:24px
+}
+button{
+ padding:14px 22px;border:0;border-radius:30px;
+ font-size:17px;font-weight:bold;cursor:pointer;
+}
+#yes{background:#ed5593;color:white}
+#no{background:#ffe1ec;color:#a32e61}
+#answer{
+ margin-top:25px;font-size:21px;font-weight:bold;
+ color:#df4080;line-height:1.6
+}
+.note{font-size:13px;color:#96677b}
+</style>
+</head>
+<body>
+<div class="heart" style="left:8%;animation-delay:0s">💗</div>
+<div class="heart" style="left:28%;animation-delay:2s">💕</div>
+<div class="heart" style="left:75%;animation-delay:1s">💖</div>
+<div class="heart" style="left:90%;animation-delay:4s">💗</div>
+
+<main class="card">
+ <div class="big">💌</div>
+ <h1>Này, tớ hỏi cậu một điều nhé!</h1>
+ <p>Cậu có thích tớ không? 🥺💗</p>
+
+ <div class="buttons">
+  <button id="yes" onclick="reply(true)">Có 💗</button>
+  <button id="no" onclick="reply(false)">Không 😝</button>
+ </div>
+
+ <div id="answer" aria-live="polite"></div>
+ <p class="note">Một trang web vui dành cho bạn bè ✨</p>
+</main>
+
+<script>
+function reply(yes){
+ const answer=document.getElementById('answer');
+ if(yes){
+  answer.textContent='Haha! Cậu bấm Có rồi nha! 😂💗 BỊ TROLL RỒI!';
+ }else{
+  answer.textContent='Không sao nha 😝 Tớ chỉ đùa thôi! BỊ TROLL RỒI!';
+ }
+}
+</script>
+</body>
+  </html>
+  
