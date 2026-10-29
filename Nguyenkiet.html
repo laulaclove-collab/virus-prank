@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VIRUS SCAN PRO</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#050000;color:#eee;
+ font-family:Arial,Helvetica,sans-serif;
+ overflow-x:hidden;
+}
+body:before{
+ content:"";position:fixed;inset:0;z-index:-1;
+ background:repeating-linear-gradient(
+  0deg,transparent 0px,transparent 27px,
+  rgba(180,0,0,.10) 28px
+ );
+}
+header{
+ display:flex;align-items:center;justify-content:space-between;
+ padding:24px 3%;gap:15px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:16px}
+.logo{font-size:48px;color:#ff2020}
+h1{font-size:29px;margin:0}
+.red{color:#ff2525}
+.sub{color:#aaa;margin-top:7px}
+.live{color:#ff3030}
+main{max-width:1300px;margin:auto;padding:10px 20px 35px}
+.top{
+ display:grid;grid-template-columns:32% 68%;
+ align-items:center;gap:20px;
+}
+.skull{
+ width:100%;max-width:340px;display:block;margin:auto;
+ filter:drop-shadow(0 0 12px red);
+ animation:glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow{
+ from{filter:drop-shadow(0 0 7px #a00)}
+ to{filter:drop-shadow(0 0 25px #f00)}
+}
+.panel{
+ border:1px solid #a90000;border-radius:13px;
+ padding:22px 26px;background:rgba(20,0,0,.8);
+}
+.alert{font-size:clamp(25px,4vw,48px);font-weight:bold;
+ color:#ff2424;text-shadow:0 0 12px #900;margin:0 0 14px}
+h2{font-size:clamp(18px,2.3vw,27px);margin:0 0 12px}
+p{line-height:1.5}
+.barline{display:flex;align-items:center;gap:18px}
+.bar{
+ flex:1;height:32px;border-radius:20px;overflow:hidden;
+ border:1px solid #777;background:#202020
+}
+#fill{
+ height:100%;width:0%;
+ background:linear-gradient(90deg,#b80000,#ff2020);
+ box-shadow:0 0 20px red;transition:width .12s;
+}
+#percent{font-size:26px;color:#ff2424;font-weight:bold}
+.path{font-family:monospace;overflow-wrap:anywhere}
+.lower{
+ display:grid;grid-template-columns:1fr 230px;gap:18px;
+ margin:22px 0 20px;
+ border:1px solid #b00;border-radius:13px;
+ padding:20px;background:rgba(20,0,0,.7);
+}
+.threat{color:#ff4a4a;font-size:18px;margin:9px 0}
+.count{
+ border:1px solid #a00;border-radius:13px;
+ text-align:center;padding:18px 8px;
+ align-self:center;
+}
+.count strong{display:block;color:#ff2222;font-size:58px}
+.center{text-align:center}
+button{
+ background:linear-gradient(#f00,#8b0000);
+ color:white;border:2px solid #ff2929;
+ padding:17px 38px;border-radius:17px;
+ font-size:21px;font-weight:bold;
+ box-shadow:0 0 22px #d00;cursor:pointer;
+}
+button:disabled{opacity:.7}
+.result{
+ border:1px solid #a00;border-radius:13px;
+ background:#160000;text-align:center;
+ margin-top:22px;padding:22px 12px;
+}
+.result h2{font-size:clamp(24px,3vw,38px);color:#ff2929}
+small{color:#bbb}
+@media(max-width:650px){
+ header{padding:18px}
+ h1{font-size:23px}
+ .top{grid-template-columns:1fr}
+ .skull{max-width:220px}
+ .panel{padding:18px}
+ .lower{grid-template-columns:1fr}
+ .count strong{font-size:48px}
+ button{max-width:100%;padding:15px 20px}
+ .live{font-size:13px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand">
+  <span class="logo">☣</span>
+  <div>
+   <h1>VIRUS SCAN <span class="red">PRO</span></h1>
+   <div class="sub">Bảo vệ thiết bị của bạn...</div>
+  </div>
+ </div>
+ <div class="live">〰 Đang mô phỏng quét...</div>
+</header>
+
+<main>
+ <section class="top">
+  <div>
+   <svg class="skull" viewBox="0 0 300 350"
+        xmlns="http://www.w3.org/2000/svg" role="img"
+        aria-label="Hình đầu lâu đỏ phát sáng">
+    <defs>
+     <radialGradient id="bone" cx="40%" cy="25%">
+      <stop offset="0" stop-color="#777"/>
+      <stop offset=".55" stop-color="#292020"/>
+      <stop offset="1" stop-color="#080000"/>
+     </radialGradient>
+     <filter id="redglow">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+     </filter>
+    </defs>
+    <circle cx="150" cy="155" r="122" fill="none"
+     stroke="#790000" stroke-width="3"/>
+    <path d="M45 140 L20 95 L63 110 L50 55 L91 91
+     L110 34 L130 79 L159 23 L175 80 L218 45
+     L213 98 L266 80 L240 128 L274 160 L237 181"
+     fill="none" stroke="#9d0000" stroke-width="5"/>
+    <path d="M70 112 Q72 48 150 45 Q230 48 232 112
+     L218 194 L190 230 L182 267 L117 267 L109 230
+     L81 194 Z" fill="url(#bone)" stroke="#a51a1a"
+     stroke-width="3"/>
+    <path d="M85 139 Q105 111 133 140 L120 164
+     L94 164 Z" fill="#050000" stroke="#ff1717"
+     stroke-width="4" filter="url(#redglow)"/>
+    <path d="M168 140 Q195 111 215 139 L206 164
+     L180 164 Z" fill="#050000" stroke="#ff1717"
+     stroke-width="4" filter="url(#redglow)"/>
+    <path d="M149 153 L132 193 L149 185 L164 194 Z"
+     fill="#030000" stroke="#8e1616" stroke-width="2"/>
+    <path d="M91 183 L115 204 L133 196 L150 209
+     L168 196 L187 204 L211 183 L204 224
+     L181 246 L119 246 L98 224 Z"
+     fill="#171010" stroke="#9c2424" stroke-width="3"/>
+    <path d="M110 205 L110 230 M128 202 L128 241
+     M146 209 L146 245 M164 209 L164 245
+     M183 202 L183 241 M200 205 L200 230"
+     stroke="#bbb" stroke-width="4"/>
+    <path d="M113 265 L108 291 L132 282 L150 300
+     L169 282 L192 291 L187 265"
+     fill="#292020" stroke="#8b1010" stroke-width="3"/>
+    <path d="M43 177 L66 205 M257 177 L234 205
+     M53 235 L79 250 M247 235 L221 250"
+     stroke="#b90000" stroke-width="4"/>
+   </svg>
+  </div>
+
+  <div class="panel">
+   <div class="alert">⚠ PHÁT HIỆN VIRUS!</div>
+   <h2>Hệ thống của bạn đã bị nhiễm 999 virus nguy hiểm!</h2>
+   <p>Vui lòng bình tĩnh. Đây là màn hình mô phỏng để giải trí.</p>
+   <div class="barline">
+    <div class="bar"><div id="fill"></div></div>
+    <span id="percent">0%</span>
+   </div>
+   <p class="path" id="status">Trạng thái: Chưa bắt đầu</p>
+  </div>
+ </section>
+
+ <section class="lower">
+  <div>
+   <div class="threat">⚠ Virus Trojan　/　Phát hiện giả lập</div>
+   <div class="threat">⚠ Virus Adware　/　Phát hiện giả lập</div>
+   <div class="threat">⚠ Virus Ransomware　/　Phát hiện giả lập</div>
+   <div class="threat">⚠ Virus Spyware　/　Phát hiện giả lập</div>
+   <div class="threat">⚠ Virus Worm　/　Phát hiện giả lập</div>
+  </div>
+  <div class="count">
+   <b class="red">Tổng số virus:</b>
+   <strong>999 ⚠</strong>
+   <span>(Mô phỏng)</span>
+  </div>
+ </section>
+
+ <div class="center">
+  <button id="btn" onclick="scan()">☠ BẮT ĐẦU QUÉT ☠</button>
+ </div>
+
+ <section class="result">
+  <h2>💀 BỊ TROLL RỒI NHA! 😂</h2>
+  <p>Đây chỉ là trang web giải trí, không quét virus thật,
+   không gây hại cho thiết bị của bạn.</p>
+  <p class="red">Cảm ơn bạn đã ghé thăm! 😎</p>
+ </section>
+</main>
+
+<script>
+let running=false;
+function scan(){
+ if(running)return;
+ running=true;
+ let n=0;
+ const btn=document.getElementById('btn');
+ btn.disabled=true;
+ btn.textContent='☠ ĐANG MÔ PHỎNG...';
+ document.getElementById('status').textContent=
+  'Đang chạy hiệu ứng giả lập...';
+ const timer=setInterval(()=>{
+  n+=2;
+  document.getElementById('fill').style.width=n+'%';
+  document.getElementById('percent').textContent=n+'%';
+  if(n>=100){
+   clearInterval(timer);
+   document.getElementById('status').textContent=
+    'Hoàn tất! Đây chỉ là trò đùa 😂';
+   btn.textContent='😂 BỊ TROLL RỒI!';
+   btn.disabled=false;
+   running=false;
+  }
+ },80);
+}
+</script>
+</body>
+  </html>
+  
