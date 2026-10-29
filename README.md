@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trình quét virus 😈</title>
+<style>
+body {
+  margin: 0;
+  padding: 24px;
+  background: #171717;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+.box {
+  max-width: 420px;
+  margin: 35px auto;
+  padding: 24px;
+  background: #292929;
+  border-radius: 18px;
+}
+h1 { color: #ff5252; }
+.bar {
+  height: 18px;
+  background: #555;
+  border-radius: 20px;
+  overflow: hidden;
+}
+#fill {
+  height: 100%;
+  width: 0;
+  background: #ff5252;
+  transition: width .2s;
+}
+button {
+  padding: 13px 20px;
+  border: 0;
+  border-radius: 10px;
+  background: #ff4242;
+  color: white;
+  font-size: 16px;
+}
+#result { color: #8cff9b; }
+small { color: #ccc; }
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>⚠️ VIRUS SCANNER</h1>
+  <p>Đang mô phỏng quét thiết bị...</p>
+  <div class="bar"><div id="fill"></div></div>
+  <p id="status">Sẵn sàng bắt đầu</p>
+  <button id="start" onclick="scan()">QUÉT NGAY</button>
+  <h2 id="result"></h2>
+  <small>Trang giải trí — không quét thiết bị thật.</small>
+</div>
+
+<script>
+let running = false;
+
+function scan() {
+  if (running) return;
+  running = true;
+
+  let n = 0;
+  document.getElementById("start").disabled = true;
+  document.getElementById("status").textContent =
+    "Đang mô phỏng... 0%";
+
+  let timer = setInterval(() => {
+    n += 5;
+    document.getElementById("fill").style.width = n + "%";
+    document.getElementById("status").textContent =
+      "Đang mô phỏng... " + n + "%";
+
+    if (n >= 100) {
+      clearInterval(timer);
+      document.getElementById("status").textContent =
+        "Kết quả quét mô phỏng: 999 virus 😂";
+      document.getElementById("result").textContent =
+        "BỊ TROLL RỒI NHA 🤣";
+      document.getElementById("start").textContent =
+        "TROLL THÀNH CÔNG";
+      running = false;
+      document.getElementById("start").disabled = false;
+    }
+  }, 100);
+}
+</script>
+</body>
+</html>
