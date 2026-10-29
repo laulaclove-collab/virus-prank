@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>☠ VIRUS SCAN PRO</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;padding:20px;
+ background:#080000;color:white;
+ font-family:Arial,sans-serif;text-align:center;
+}
+.box{
+ max-width:700px;margin:20px auto;padding:22px;
+ border:1px solid #ff2020;border-radius:16px;
+ background:linear-gradient(145deg,#200000,#080000);
+ box-shadow:0 0 20px #800000;
+}
+h1{color:#ff2424;text-shadow:0 0 15px red}
+.skull{
+ font-size:100px;
+ filter:drop-shadow(0 0 15px red);
+ animation:pulse 1.5s infinite alternate;
+}
+@keyframes pulse{
+ from{transform:scale(1)}
+ to{transform:scale(1.08)}
+}
+.warning{color:#ff4545;font-size:25px;font-weight:bold}
+.bar{
+ height:20px;background:#333;border-radius:20px;
+ overflow:hidden;margin:20px 0;
+ border:1px solid #ff3030;
+}
+#fill{
+ height:100%;width:0%;
+ background:#ff1717;box-shadow:0 0 15px red;
+ transition:width .15s;
+}
+button{
+ background:#b90000;color:white;border:2px solid red;
+ border-radius:12px;padding:15px 25px;
+ font-size:18px;font-weight:bold;
+ box-shadow:0 0 15px #a00;
+}
+button:disabled{opacity:.7}
+#result{color:#ff4848;font-size:28px}
+small{color:#bbb}
+</style>
+</head>
+<body>
+<div class="box">
+ <h1>☠ VIRUS SCAN PRO ☠</h1>
+ <div class="skull">💀</div>
+ <div class="warning">⚠ PHÁT HIỆN VIRUS!</div>
+ <p id="status">Sẵn sàng mô phỏng quét</p>
+ <div class="bar"><div id="fill"></div></div>
+ <p id="percent">0%</p>
+ <button id="btn" onclick="scan()">☠ QUÉT NGAY ☠</button>
+ <h2 id="result"></h2>
+ <p id="extra"></p>
+ <hr style="border-color:#700">
+ <small>Trang giải trí — không quét hay tác động đến thiết bị thật.</small>
+</div>
+<script>
+let running=false;
+function scan(){
+ if(running)return;
+ running=true;
+ let n=0;
+ const btn=document.getElementById('btn');
+ btn.disabled=true;
+ document.getElementById('result').textContent='';
+ document.getElementById('extra').textContent='';
+ const timer=setInterval(()=>{
+  n+=2;
+  document.getElementById('fill').style.width=n+'%';
+  document.getElementById('percent').textContent=n+'%';
+  document.getElementById('status').textContent=
+   'Đang mô phỏng quét...';
+  if(n>=100){
+   clearInterval(timer);
+   document.getElementById('status').textContent=
+    'Kết quả mô phỏng: 999 virus 😂';
+   document.getElementById('result').textContent=
+    '💀 BỊ TROLL RỒI NHA! 😂';
+   document.getElementById('extra').textContent=
+    'Yên tâm nhé, đây chỉ là trò đùa!';
+   btn.textContent='TROLL LẠI ☠';
+   btn.disabled=false;
+   running=false;
+  }
+ },60);
+}
+</script>
+</body>
+  </html>
+  
